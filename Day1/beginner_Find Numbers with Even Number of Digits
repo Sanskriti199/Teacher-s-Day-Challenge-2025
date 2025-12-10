@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int findNumbers(vector<int>& num) {
+       int n = num.size();
+       int output=0;
+        
+        for(int i=0;i<n;i++){
+
+            if((num[i]>=10&&num[i]<=99)||
+            (num[i]>=1000&& num[i]<=9999)||
+            (num[i]==100000)){
+                output++;
+            }
+        }
+        return output;
+    }
+};
