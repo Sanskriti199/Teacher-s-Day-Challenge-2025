@@ -1,0 +1,24 @@
+#include <iostream>
+#include <numeric>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    double sum = 0;
+    for (int i = 0; i < n; ++i) {
+        int p;
+        cin >> p;
+        sum += p;
+    }
+
+    double average = sum / n;
+
+    cout.precision(10);
+    cout << fixed << average << endl;
+
+    return 0;
+}
