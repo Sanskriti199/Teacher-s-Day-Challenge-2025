@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    string result = "";
+    bool firstWord = true;
+    for (int i = 0; i < s.length(); ) {
+        if (s.substr(i, 3) == "WUB") {
+            i += 3;
+        } else {
+            if (!firstWord) {
+                result += " ";
+            }
+            firstWord = false;
+            while (i < s.length() && s.substr(i, 3) != "WUB") {
+                result += s[i];
+                i++;
+            }
+        }
+    }
+    cout << result << endl;
+    return 0;
+}
