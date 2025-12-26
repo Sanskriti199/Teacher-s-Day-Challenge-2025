@@ -1,0 +1,19 @@
+#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main() {
+    int s1, s2, s3, s4;
+    cin >> s1 >> s2 >> s3 >> s4;
+
+    set<int> distinct_colors;
+    distinct_colors.insert(s1);
+    distinct_colors.insert(s2);
+    distinct_colors.insert(s3);
+    distinct_colors.insert(s4);
+
+    cout << 4 - distinct_colors.size() << endl;
+
+    return 0;
+}
