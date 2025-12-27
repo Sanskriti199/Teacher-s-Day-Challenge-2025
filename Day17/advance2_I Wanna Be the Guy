@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<bool> levels(n + 1, false);
+    int p;
+    cin >> p;
+    for (int i = 0; i < p; ++i) {
+        int level;
+        cin >> level;
+        levels[level] = true;
+    }
+
+    int q;
+    cin >> q;
+    for (int i = 0; i < q; ++i) {
+        int level;
+        cin >> level;
+        levels[level] = true;
+    }
+
+    bool all_passed = true;
+    for (int i = 1; i <= n; ++i) {
+        if (!levels[i]) {
+            all_passed = false;
+            break;
+        }
+    }
+
+    if (all_passed) {
+        cout << "I become the guy." << endl;
+    } else {
+        cout << "Oh, my keyboard!" << endl;
+    }
+
+    return 0;
+}
