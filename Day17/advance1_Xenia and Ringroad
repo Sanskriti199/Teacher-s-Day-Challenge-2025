@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    long long time = 0;
+    int current_house = 1;
+    for (int i = 0; i < m; ++i) {
+        int next_house;
+        cin >> next_house;
+        if (next_house >= current_house) {
+            time += next_house - current_house;
+        } else {
+            time += (n - current_house) + next_house;
+        }
+        current_house = next_house;
+    }
+    cout << time << endl;
+    return 0;
+}
