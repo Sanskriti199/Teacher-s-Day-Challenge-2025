@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <numeric>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    deque<int> cards;
+    for (int i = 0; i < n; ++i) {
+        int card_value;
+        cin >> card_value;
+        cards.push_back(card_value);
+    }
+
+    long long sereja_score = 0;
+    long long dima_score = 0;
+    bool sereja_turn = true;
+
+    while (!cards.empty()) {
+        int taken_card;
+        if (cards.front() > cards.back()) {
+            taken_card = cards.front();
+            cards.pop_front();
+        } else {
+            taken_card = cards.back();
+            cards.pop_back();
+        }
+
+        if (sereja_turn) {
+            sereja_score += taken_card;
+        } else {
+            dima_score += taken_card;
+        }
+
+        sereja_turn = !sereja_turn;
+    }
+
+    cout << sereja_score << " " << dima_score << endl;
+
+    return 0;
+}
