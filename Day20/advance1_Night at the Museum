@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    int rotations = 0;
+    char current = 'a';
+
+    for (char next : s) {
+        int diff = abs(next - current);
+        rotations += min(diff, 26 - diff);
+        current = next;
+    }
+
+    cout << rotations << endl;
+
+    return 0;
+}
