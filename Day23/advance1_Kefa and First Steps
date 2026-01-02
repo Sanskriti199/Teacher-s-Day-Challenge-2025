@@ -1,0 +1,36 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    if (n == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    int prev;
+    cin >> prev;
+
+    int maxLength = 1;
+    int currentLength = 1;
+
+    for (int i = 1; i < n; ++i) {
+        int current;
+        cin >> current;
+        if (current >= prev) {
+            currentLength++;
+        } else {
+            currentLength = 1;
+        }
+        maxLength = max(maxLength, currentLength);
+        prev = current;
+    }
+
+    cout << maxLength << endl;
+
+    return 0;
+}
