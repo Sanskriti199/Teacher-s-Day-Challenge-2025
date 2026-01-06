@@ -1,0 +1,68 @@
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <set>
+#include <utility>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+ int k1;
+    cin >> k1;
+    deque<int> p1;
+    for (int i = 0; i < k1; ++i) {
+    int card;
+    cin >> card;
+    p1.push_back(card);
+    }
+
+    int k2;
+    cin >> k2;
+    deque<int> p2;
+    for (int i = 0; i < k2; ++i) {
+        int card;
+        cin >> card;
+        p2.push_back(card);
+    }
+
+    set<pair<deque<int>, deque<int>>> history;
+    int fights = 0;
+
+   while (!p1.empty() && !p2.empty()) {
+        if (fights > 100000) { 
+        cout << -1 << endl;
+        return 0;
+        }
+
+        if (history.count({p1, p2})) {
+        cout << -1 << endl;
+            return 0;
+        }
+    history.insert({p1, p2});
+
+        int card1 = p1.front();
+        p1.pop_front();
+        int card2 = p2.front();
+        p2.pop_front();
+
+    if (card1 > card2) {
+            p1.push_back(card2);
+            p1.push_back(card1);
+    } else {
+            p2.push_back(card1);
+            p2.push_back(card2);
+        }
+
+        fights++;
+    }
+
+if (p1.empty()) {
+        cout << fights << " " << 2 << endl;
+        } else {
+        cout << fights << " " << 1 << endl;
+    }
+
+    return 0;
+}
